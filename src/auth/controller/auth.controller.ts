@@ -4,16 +4,14 @@ import { CreateUserDto } from '../dtos/create-user.dto';
 
 @Controller('auth')
 export class AuthController {
-    constructor(
-        public authService: AuthService
-    ){}
+    constructor(public authService: AuthService){}
 
     @Post('/signup')
     createUser(
         @Body() 
         body: CreateUserDto
     ) {
-
+        this.authService.create(body.email, body.password)
     }
 
     @Get('/:id')

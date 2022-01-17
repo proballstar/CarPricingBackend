@@ -21,6 +21,7 @@ let AuthController = class AuthController {
         this.authService = authService;
     }
     createUser(body) {
+        this.authService.create(body.email, body.password);
     }
     findUser() {
     }
