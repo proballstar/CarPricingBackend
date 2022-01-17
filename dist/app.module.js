@@ -14,6 +14,7 @@ const auth_module_1 = require("./auth/auth.module");
 const reports_module_1 = require("./reports/reports.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./auth/user.entity");
+const report_entity_1 = require("./reports/report.entity");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -21,7 +22,7 @@ AppModule = __decorate([
         imports: [typeorm_1.TypeOrmModule.forRoot({
                 type: 'sqlite',
                 database: 'db.sqlite',
-                entities: [user_entity_1.UserEntity],
+                entities: [user_entity_1.UserEntity, report_entity_1.Report],
                 synchronize: true
             }), auth_module_1.AuthModule, reports_module_1.ReportsModule],
         controllers: [app_controller_1.AppController],
